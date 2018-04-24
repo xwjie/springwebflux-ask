@@ -1,0 +1,13 @@
+In plain terms reactive programming is about non-blocking applications that are asynchronous and event-driven and require a small number of threads to scale vertically (i.e. within the JVM) rather than horizontally (i.e. through clustering).
+
+A key aspect of reactive applications is the concept of backpressure which is a mechanism to ensure producers don’t overwhelm consumers. For example in a pipeline of reactive components extending from the database to the HTTP response when the HTTP connection is too slow the data repository can also slow down or stop completely until network capacity frees up.
+
+Reactive programming also leads to a major shift from imperative to declarative async composition of logic. It is comparable to writing blocking code vs using the CompletableFuture from Java 8 to compose follow-up actions via lambda expressions.
+
+For a longer introduction check the blog series "Notes on Reactive Programming" by Dave Syer.
+
+Spring Framework 5 embraces Reactive Streams as the contract for communicating backpressure across async components and libraries. Reactive Streams is a specification created through industry collaboration that has also been adopted in Java 9 as java.util.concurrent.Flow.
+
+The Spring Framework uses Reactor internally for its own reactive support. Reactor is a Reactive Streams implementation that further extends the basic Reactive Streams Publisher contract with the Flux and Mono composable API types to provide declarative operations on data sequences of 0..N and 0..1.
+
+The Spring Framework exposes Flux and Mono in many of its own reactive APIs. At the application level however, as always, Spring provides choice and fully supports the use of RxJava. For more on reactive types check the post "Understanding Reactive Types" by Sebastien Deleuze.
