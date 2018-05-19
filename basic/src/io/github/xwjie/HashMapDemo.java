@@ -4,9 +4,13 @@ import java.util.HashMap;
 
 /**
  * hashmap如果key是自己对象
- * 需要覆盖hashcode和equal方法
+ * 一般需要覆盖hashcode和equal方法
  *
- * 最重要的是：对象放进去之后hashcode不能修改，否则找不出啦
+ * 最重要的是：
+ * 1. 对象放进去之后hashcode不能修改，否则找不出啦
+ * 2. 即使equals总是false，也能找到！
+ *
+ * 原因：因为先比较hashcode，然后比较地址==，最后才是equals
  *
  * @author  https://xwjie.github.io/
  */
@@ -23,6 +27,8 @@ public class HashMapDemo {
         HashMap<User, String> map = new HashMap<>();
 
         map.put(user, "放进去的数据");
+
+        System.out.println(map.size());
 
         System.out.println("值为：" + map.get(user));
 

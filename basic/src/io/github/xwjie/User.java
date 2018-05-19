@@ -1,6 +1,9 @@
 package io.github.xwjie;
 
 public class User{
+    // FIXME ID 应该加final
+    private long id;
+
     public long getId() {
         return id;
     }
@@ -8,8 +11,6 @@ public class User{
     public void setId(long id) {
         this.id = id;
     }
-
-    private long id;
 
     public User(long id) {
         this.id = id;
