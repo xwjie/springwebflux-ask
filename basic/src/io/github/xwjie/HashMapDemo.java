@@ -38,7 +38,7 @@ public class HashMapDemo {
 
         System.out.println("值为：" + map.get(user));
 
-        // 所以hashcode要覆盖实现，和制定的关键信息绑定，而且这个字段不能改表
+        // 所以hashcode要覆盖实现，和指定的关键信息绑定，而且这个字段不能改变
         // 如User对象的id必须加final，否则就是有bug
     }
 }
